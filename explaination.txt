@@ -31,3 +31,5 @@ FOR AUTOMATIC DOCKERISATION OF 2 FRONTEND+BACKEND WE USE DOCKER COMPOSE
 Docker compose ki help se both frontend and backend build ho jayega ek saath
 
 command: docker compose up
+
+aur docker compose down se container he delete ho jayega
