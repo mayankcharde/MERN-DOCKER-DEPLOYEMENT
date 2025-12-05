@@ -33,3 +33,17 @@ Docker compose ki help se both frontend and backend build ho jayega ek saath
 command: docker compose up
 
 aur docker compose down se container he delete ho jayega
+
+
+Verify krne ke liye hamari images hai ki nhi we run
+command: docker images
+
+
+for publishing our images we use docker hub 
+
+
+
+THIS COMMAND FOR BUILDING OUR PROJECT/FOLDER 
+docker-compose up --build
+
+
