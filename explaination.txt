@@ -1,0 +1,33 @@
+THIS IS A MANNUAL WAY TO RUN DOCKER FILES 
+AND IT IS VERY COMPLICATED BECAUSE WE HAVE TO RUN CLIENT AND SERVER SIMENTANIOUSELY 
+
+BACKEND DOCKER BUILD
+
+sabse pahele to hum sever(backend) ka docker setup krege 
+
+command: docker build -t express-server .
+isse ek hamare pass ek image generate hogi docker platform pe 
+
+ise hum run bhi kr sakte hai iske liye cmd hai
+command: docker run -p 4000:4000 express-server
+
+isse hamari docker ke andar application chalegi
+
+
+
+FRONTEND DOCKER BUILD 
+
+sabse pahele to hum client(frontend) ka docker setup krege 
+command: docker build -t react-client .
+isse ek hamare pass ek image generate hogi docker platform pe 
+
+ise hum run bhi kr sakte hai iske liye cmd hai
+command: docker run -p 5174:3000 react-client 
+
+
+
+FOR AUTOMATIC DOCKERISATION OF 2 FRONTEND+BACKEND WE USE DOCKER COMPOSE 
+
+Docker compose ki help se both frontend and backend build ho jayega ek saath
+
+command: docker compose up

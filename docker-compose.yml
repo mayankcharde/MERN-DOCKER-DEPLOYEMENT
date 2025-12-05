@@ -1,0 +1,30 @@
+# We are using Docker Compose version 3.9
+version: "3.9"
+
+services:   # All containers (frontend + backend) will be listed under services
+  server:  # Backend service (Node + Express)
+    build: ./server   # Build Docker image using Dockerfile inside "server" folder
+    container_name: express-server   # Name of the backend container
+    ports:
+      - "4000:4000"   # Expose backend: host 4000 → container 4000
+    networks:
+      - fullstack-net  # Connect backend to the same network as frontend
+    restart: unless-stopped  # Auto restart container if it stops unexpectedly
+
+  client:    # Frontend service (React + Vite)
+    build: ./client   # Build Docker image using Dockerfile inside "client" folder
+    container_name: react-client  # Name of the frontend container
+    ports:
+      - "5174:3000"  # Host 5174 → Container 3000 (React build served on port 3000)
+    networks:
+      - fullstack-net  # Same network so frontend can talk to backend
+    depends_on:
+      - server  # Start backend first, then frontend because frontend depends upon backend
+    restart: unless-stopped   # Auto restart if it crashes
+
+# Custom network for both frontend and backend
+networks:
+  fullstack-net:
+    driver: bridge    # Bridge network allows containers to communicate with each other
+
+      
